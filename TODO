@@ -2,5 +2,4 @@ TODO
 ====
 - Parse additional data (name, max-values, etc.)
 - Better data output control
-- Output column names and units (easy)
 - Link to go-gnuplot

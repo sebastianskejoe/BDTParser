@@ -104,8 +104,34 @@ func printUsage() {
 }
 
 func printData() {
+    // Labels
+    parts := make([]string,0)
+    if *timeflag {
+        parts = append(parts, "Time (mm:ss)")
+        parts = append(parts, "Time (s)")
+    }
+    if *hrflag {
+        parts = append(parts, "Heart rate (beat/min)")
+    }
+    if *ventflag {
+        parts = append(parts, "Ventilation (L/min)")
+    }
+    if *vo2flag {
+        parts = append(parts, "V'O2 (mL/min)")
+    }
+    if *vco2flag {
+        parts = append(parts, "V'CO2 (mL/min)")
+    }
+    if *kondiflag {
+        parts = append(parts, "V'O2/kg (mL/min/kg)")
+    }
+    if *rerflag {
+        parts = append(parts, "RER")
+    }
+    fmt.Println(strings.Join(parts, "\t"))
+
     for line,_ := range time {
-        parts := make([]string,0)
+        parts = make([]string,0)
         if *timeflag {
             parts = append(parts, time[line])
             parts = append(parts, strconv.Itoa(minsecToSec(time[line])))
